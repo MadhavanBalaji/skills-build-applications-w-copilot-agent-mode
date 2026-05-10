@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from . import views
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+import os
+
 
 
 router = routers.DefaultRouter()
@@ -29,18 +32,29 @@ router.register(r'workouts', views.WorkoutViewSet)
 router.register(r'activities', views.ActivityViewSet)
 router.register(r'leaderboard', views.LeaderboardViewSet)
 
+
+# API root with codespace URL
 @api_view(['GET'])
 def api_root(request, format=None):
+    codespace_name = os.environ.get('CODESPACE_NAME')
+    if codespace_name:
+        base_url = f"https://{codespace_name}-8000.app.github.dev/api/"
+    else:
+        scheme = 'https' if request.is_secure() else 'http'
+        host = request.get_host()
+        base_url = f"{scheme}://{host}/api/"
     return Response({
-        'users': request.build_absolute_uri('users/'),
-        'teams': request.build_absolute_uri('teams/'),
-        'workouts': request.build_absolute_uri('workouts/'),
-        'activities': request.build_absolute_uri('activities/'),
-        'leaderboard': request.build_absolute_uri('leaderboard/'),
+        'users': base_url + 'users/',
+        'teams': base_url + 'teams/',
+        'workouts': base_url + 'workouts/',
+        'activities': base_url + 'activities/',
+        'leaderboard': base_url + 'leaderboard/',
     })
+
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', api_root, name='api-root'),
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
+    re_path(r'^$', api_root, name='api-root'),
 ]
