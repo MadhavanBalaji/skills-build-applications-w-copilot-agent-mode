@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 const endpointBase = process.env.REACT_APP_CODESPACE_NAME
   ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
   : '';
+const apiUrl = 'https://-8000.app.github.dev/api/users';
 
 function Users() {
   const endpoint = `${endpointBase}/api/users/`;

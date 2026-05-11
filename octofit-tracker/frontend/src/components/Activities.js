@@ -5,6 +5,8 @@ const endpointBase = process.env.REACT_APP_CODESPACE_NAME
   : '';
 
 function Activities() {
+  // The following URL is used for the API endpoint
+  const apiUrl = 'https://-8000.app.github.dev/api/activities';  
   const endpoint = `${endpointBase}/api/activities/`;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);

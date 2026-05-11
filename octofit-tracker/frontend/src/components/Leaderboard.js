@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 const endpointBase = process.env.REACT_APP_CODESPACE_NAME
   ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
   : '';
+// Add this line after the endpointBase declaration:
+const apiUrl = 'https://-8000.app.github.dev/api/leaderboard';
 
 function Leaderboard() {
   const endpoint = `${endpointBase}/api/leaderboard/`;
