@@ -1,0 +1,104 @@
+/* Custom styles for OctoFit Tracker */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(13, 110, 253, 0.18), transparent 30%),
+    linear-gradient(180deg, #f5f9ff 0%, #eef4ff 48%, #f8fafc 100%);
+  color: #102a43;
+}
+
+a {
+  color: #3b82f6;
+}
+
+a:hover,
+.nav-link:hover {
+  color: #1d4ed8;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(13, 110, 253, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #0b5ed7 !important;
+}
+
+.navbar-nav .nav-link {
+  color: #0d6efd;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link.active {
+  color: #0a58ca;
+  font-weight: 600;
+}
+
+.app-header {
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 0.75rem 2rem rgba(15, 23, 42, 0.06);
+  padding: 1.5rem;
+}
+
+.app-logo {
+  width: 52px;
+  height: auto;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 0.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #102a43;
+}
+
+h2 {
+  color: #0d6efd;
+}
+
+.table {
+  background: #ffffff;
+}
+
+.table th {
+  background-color: #e7f1ff;
+  color: #0d3b66;
+  font-weight: 700;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f4f8ff;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #dbe9ff;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.06);
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+.text-muted {
+  color: #486581 !important;
+}
